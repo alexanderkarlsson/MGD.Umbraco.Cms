@@ -380,6 +380,8 @@ yarn-error.log*
 *.sln
 *.sw?
 
+# Vue
+MGD.Vue.Site/dist
 
 #Umbraco
 MGD.Umbraco.Cms/App_Data/TEMP
