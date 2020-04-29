@@ -383,3 +383,6 @@ yarn-error.log*
 
 #Umbraco
 MGD.Umbraco.Cms/App_Data/TEMP
+MGD.Umbraco.Cms/App_Data/cache
+MGD.Umbraco.Cms/App_Data/packages
+MGD.Umbraco.Cms/App_Data/Logs
