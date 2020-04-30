@@ -42,6 +42,7 @@ export default {
       let id = Number(this.pageId);
       let p = this.page;
       cmsApi.getPage(id).then(currentPage => {
+        console.log(currentPage);
         p.heading = currentPage.Heading;
         if (currentPage.Blocks != null) {
           currentPage.Blocks.forEach(block => {
@@ -49,7 +50,7 @@ export default {
             if (blockType === "heroBlock") {
               p.blocks.push({
                 heading: block.Heading,
-                text: block.Text,
+                text: block.SubHeading,
                 bgImageUrl: block.BackgroundImage
                   ? block.BackgroundImage.Url
                   : "",

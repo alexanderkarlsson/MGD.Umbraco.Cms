@@ -45,10 +45,17 @@ namespace MGD.Umbraco.Cms.ModelsBuilder.Models
 		// properties
 
 		///<summary>
-		/// Body
+		/// Alternative background
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
-		[ImplementPropertyType("body")]
-		public global::System.Web.IHtmlString Body => this.Value<global::System.Web.IHtmlString>("body");
+		[ImplementPropertyType("alternativeBackground")]
+		public bool AlternativeBackground => this.Value<bool>("alternativeBackground");
+
+		///<summary>
+		/// Wysiwyg
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		[ImplementPropertyType("wysiwyg")]
+		public global::System.Web.IHtmlString Wysiwyg => this.Value<global::System.Web.IHtmlString>("wysiwyg");
 	}
 }

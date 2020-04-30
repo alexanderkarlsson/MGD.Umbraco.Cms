@@ -16,14 +16,12 @@ export default router;
 cmsApi.getRoutes().then((cmsRoutes) => {
   let dynamicRoutes = [];
   cmsRoutes.forEach((p) => {
-    let alias = p.ContentType.Alias;
-    alias = alias.charAt(0).toUpperCase() + alias.substr(1);
-    let comp = () => import("../pages/" + alias + ".vue");
+    let comp = () => import("../pages/" + p.alias + ".vue");
     dynamicRoutes.push({
-      path: p.Url,
-      name: p.Id.toString(),
+      path: p.url,
+      name: p.name,
       component: comp,
-      props: { pageId: p.Id },
+      props: { pageId: p.id },
     });
   });
   router.addRoutes(dynamicRoutes);

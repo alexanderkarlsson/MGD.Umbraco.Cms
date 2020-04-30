@@ -19,6 +19,8 @@ namespace MGD.Umbraco.Cms.Core.Controllers
         [System.Web.Http.HttpGet]
         public JToken GetPage(int id)
         {
+            CultureHelper.Set("en-us");
+
             // Get data and type it
             var page = _umbracoService.TypeGenericToModelsBuilderType(Umbraco.Content(id));
 

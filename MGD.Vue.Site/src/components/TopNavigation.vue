@@ -1,7 +1,7 @@
 <template>
   <nav
     class="navbar"
-    style="background-image:linear-gradient(-90deg,#63BBE9 60%,#437BBD)"
+    style="background-color: #e3dcd6;"
     role="navigation"
     aria-label="main navigation"
   >
@@ -25,10 +25,10 @@
       <div id="navMenu" class="navbar-menu">
         <router-link
           v-for="route in cmsRoutes"
-          :key="route.Name"
+          :key="route.id"
           class="navbar-item"
-          :to="route.Url"
-        >{{ route.Name }}</router-link>
+          :to="route.url"
+        >{{ route.name }}</router-link>
       </div>
     </div>
   </nav>
@@ -45,7 +45,7 @@ export default {
   mounted() {
     cmsApi.getRoutes().then(cmsRoutes => {
       this.cmsRoutes = cmsRoutes.filter(function(r) {
-        return r.Url != "/";
+        return r.url != "/";
       });
     });
   }

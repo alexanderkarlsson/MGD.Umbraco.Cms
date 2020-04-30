@@ -5,7 +5,7 @@
   >
     <div class="hero-body">
       <div class="container">
-        <h1 class="title is-family-secondary">{{ heading }}</h1>
+        <h1 class="title is-1">{{ heading }}</h1>
         <div class="subtitle" v-html="text"></div>
       </div>
     </div>

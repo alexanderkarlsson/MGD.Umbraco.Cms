@@ -3,8 +3,7 @@
     <section class="hero" v-if="page.heading">
       <div class="hero-body">
         <div class="container">
-          <h1 class="title is-family-secondary">{{ page.heading }}</h1>
-          <div class="content" v-html="page.heading"></div>
+          <h1 class="title">{{ page.heading }}</h1>
         </div>
       </div>
     </section>

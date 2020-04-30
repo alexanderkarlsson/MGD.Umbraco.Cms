@@ -24,6 +24,7 @@ namespace MGD.Umbraco.Cms.Core.Controllers
         [System.Web.Http.HttpGet]
         public JToken GetAllRoutes(int? rootId)
         {
+            CultureHelper.Set("en-us");
             var routes = new List<RouteApiViewModel>();
             var root = rootId.HasValue ? Umbraco.Content(rootId) : Umbraco.ContentAtRoot().First();
             var descendants = root.Descendants().ToList();
@@ -52,6 +53,10 @@ namespace MGD.Umbraco.Cms.Core.Controllers
 
     public class RouteApiViewModel
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
         public string Url { get; set; }
+        public string Alias { get; set; }
+        
     }
 }

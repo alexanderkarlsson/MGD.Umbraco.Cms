@@ -59,10 +59,24 @@ namespace MGD.Umbraco.Cms.ModelsBuilder.Models
 		public string Heading => this.Value<string>("heading");
 
 		///<summary>
-		/// Text
+		/// HTML Heading tag: Set the desired HTML heading tag, default is H1
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
-		[ImplementPropertyType("text")]
-		public global::System.Web.IHtmlString Text => this.Value<global::System.Web.IHtmlString>("text");
+		[ImplementPropertyType("htmlHeadingTag")]
+		public string HtmlHeadingTag => this.Value<string>("htmlHeadingTag");
+
+		///<summary>
+		/// Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		[ImplementPropertyType("image")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Image => this.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("image");
+
+		///<summary>
+		/// Sub heading
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		[ImplementPropertyType("subHeading")]
+		public string SubHeading => this.Value<string>("subHeading");
 	}
 }
