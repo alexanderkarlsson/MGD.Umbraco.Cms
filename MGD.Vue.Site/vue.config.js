@@ -3,10 +3,10 @@ module.exports = {
     port: 7777,
     proxy: {
       "/umbraco/*": {
-        target: "http://localhost:17943/",
+        target: "https://cmsapi.wipcore.se/",
       },
       "/media/*": {
-        target: "http://localhost:17943/",
+        target: "https://cmsapi.wipcore.se/",
       },
     },
   },

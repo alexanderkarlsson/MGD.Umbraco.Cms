@@ -50,5 +50,12 @@ namespace MGD.Umbraco.Cms.ModelsBuilder.Models
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
 		[ImplementPropertyType("blocks")]
 		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.PublishedContent.IPublishedElement> Blocks => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.PublishedContent.IPublishedElement>>("blocks");
+
+		///<summary>
+		/// Heading
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
+		[ImplementPropertyType("heading")]
+		public string Heading => this.Value<string>("heading");
 	}
 }

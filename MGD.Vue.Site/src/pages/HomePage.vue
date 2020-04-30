@@ -38,10 +38,11 @@ export default {
   },
   methods: {
     loadPage() {
-      this.page = { blocks: [] };
+      this.page = { blocks: [], heading: "" };
       let id = Number(this.pageId);
       let p = this.page;
       cmsApi.getPage(id).then(currentPage => {
+        p.heading = currentPage.Heading;
         if (currentPage.Blocks != null) {
           currentPage.Blocks.forEach(block => {
             let blockType = block.ContentType.Alias;

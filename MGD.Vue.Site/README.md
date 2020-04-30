@@ -1,5 +1,7 @@
 # MGD Headless API
 
+// ngrok http 17943 -host-header="localhost:17943/"
+
 ## Project setup
 
 ```

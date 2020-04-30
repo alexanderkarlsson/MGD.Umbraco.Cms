@@ -1,9 +1,12 @@
-﻿using MGD.Umbraco.Cms.Core.Converters;
+﻿using System.Collections.Generic;
+using MGD.Umbraco.Cms.Core.Converters;
 using MGD.Umbraco.Cms.Core.Resolvers;
 using MGD.Umbraco.Cms.Core.Services;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Linq;
+using Newtonsoft.Json.Serialization;
+using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Web;
 using Umbraco.Web.WebApi;
 
@@ -21,20 +24,34 @@ namespace MGD.Umbraco.Cms.Core.Controllers
         [System.Web.Http.HttpGet]
         public JToken GetAllRoutes(int? rootId)
         {
+            var routes = new List<RouteApiViewModel>();
             var root = rootId.HasValue ? Umbraco.Content(rootId) : Umbraco.ContentAtRoot().First();
             var descendants = root.Descendants().ToList();
             descendants.Add(root);
             descendants = _umbracoService.TypeGenericToModelsBuilderType(descendants);
+            foreach (var publishedContent in descendants)
+            {
+                var route = Mapper.Map<IPublishedContent, RouteApiViewModel>(publishedContent);
+                if (route != null)
+                {
+                    routes.Add(route);
+                }
+            }
 
             // Json settings
             var jsonSerializerSettings = new JsonSerializerSettings
             {
                 NullValueHandling = NullValueHandling.Ignore,
-                ContractResolver = new PublishedContentContractResolver(),
+                ContractResolver = new CamelCasePropertyNamesContractResolver()
             };
-            jsonSerializerSettings.Converters.Add(new HtmlStringConverter());
-            var data = Newtonsoft.Json.JsonConvert.SerializeObject(descendants, jsonSerializerSettings);
+
+            var data = Newtonsoft.Json.JsonConvert.SerializeObject(routes, jsonSerializerSettings);
             return JToken.Parse(data);
         }
+    }
+
+    public class RouteApiViewModel
+    {
+        public string Url { get; set; }
     }
 }
