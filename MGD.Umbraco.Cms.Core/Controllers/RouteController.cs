@@ -8,10 +8,12 @@ using System.Linq;
 using Newtonsoft.Json.Serialization;
 using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Web;
+using Umbraco.Web.Mvc;
 using Umbraco.Web.WebApi;
 
 namespace MGD.Umbraco.Cms.Core.Controllers
 {
+    [PluginController("CmsApi")]
     public class RouteController : UmbracoApiController
     {
         private readonly IUmbracoService _umbracoService;

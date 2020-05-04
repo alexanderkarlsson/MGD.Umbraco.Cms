@@ -9,7 +9,7 @@ export default {
   getRoutes() {
     return new Promise((resolve, reject) => {
       cmsAxios
-        .get("/umbraco/api/route/GetAllRoutes?rootId=")
+        .get("/umbraco/cmsapi/route/GetAllRoutes?rootId=")
         .then((response) => {
           resolve(response.data);
         })
@@ -21,7 +21,7 @@ export default {
   getPage(pageId) {
     return new Promise((resolve, reject) => {
       cmsAxios
-        .get("/umbraco/api/content/getpage?id=" + pageId)
+        .get("/umbraco/cmsapi/pages/getpage?id=" + pageId)
         .then((response) => {
           resolve(response.data);
         })

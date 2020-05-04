@@ -3,21 +3,23 @@ using MGD.Umbraco.Cms.Core.Resolvers;
 using MGD.Umbraco.Cms.Core.Services;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Umbraco.Web.Mvc;
 using Umbraco.Web.WebApi;
 
 namespace MGD.Umbraco.Cms.Core.Controllers
 {
-    public class ContentController : UmbracoApiController
+    [PluginController("CmsApi")]
+    public class PagesController : UmbracoApiController
     {
         private readonly IUmbracoService _umbracoService;
 
-        public ContentController(IUmbracoService umbracoService)
+        public PagesController(IUmbracoService umbracoService)
         {
             _umbracoService = umbracoService;
         }
 
         [System.Web.Http.HttpGet]
-        public JToken GetPage(int id)
+        public JToken GetPage(int? id)
         {
             CultureHelper.Set("en-us");
 
