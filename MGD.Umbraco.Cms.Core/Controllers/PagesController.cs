@@ -1,4 +1,6 @@
-﻿using MGD.Umbraco.Cms.Core.Converters;
+﻿using System.Collections.Generic;
+using System.Linq;
+using MGD.Umbraco.Cms.Core.Converters;
 using MGD.Umbraco.Cms.Core.Resolvers;
 using MGD.Umbraco.Cms.Core.Services;
 using Newtonsoft.Json;
@@ -19,9 +21,9 @@ namespace MGD.Umbraco.Cms.Core.Controllers
         }
 
         [System.Web.Http.HttpGet]
-        public JToken GetPage(int? id)
+        public JToken GetPage(int? id, string culture = "en-us")
         {
-            CultureHelper.Set("en-us");
+            CultureHelper.Set(culture);
 
             // Get data and type it
             var page = _umbracoService.TypeGenericToModelsBuilderType(Umbraco.Content(id));
@@ -34,6 +36,25 @@ namespace MGD.Umbraco.Cms.Core.Controllers
             };
             jsonSerializerSettings.Converters.Add(new HtmlStringConverter());
             var data = Newtonsoft.Json.JsonConvert.SerializeObject(page, jsonSerializerSettings);
+            return JToken.Parse(data);
+        }
+
+        [System.Web.Http.HttpGet]
+        public JToken GetPages(List<int> ids, string culture = "en-us")
+        {
+            CultureHelper.Set(culture);
+
+            // Get data and type it
+            var pages = _umbracoService.TypeGenericToModelsBuilderType(Umbraco.Content(ids).ToList());
+
+            // Json settings
+            var jsonSerializerSettings = new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Ignore,
+                ContractResolver = new PublishedContentContractResolver(),
+            };
+            jsonSerializerSettings.Converters.Add(new HtmlStringConverter());
+            var data = Newtonsoft.Json.JsonConvert.SerializeObject(pages, jsonSerializerSettings);
             return JToken.Parse(data);
         }
     }

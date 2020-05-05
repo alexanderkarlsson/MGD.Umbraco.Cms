@@ -24,9 +24,9 @@ namespace MGD.Umbraco.Cms.Core.Controllers
         }
 
         [System.Web.Http.HttpGet]
-        public JToken GetAllRoutes(int? rootId)
+        public JToken GetAllRoutes(int? rootId, string culture = "en-us")
         {
-            CultureHelper.Set("en-us");
+            CultureHelper.Set(culture);
             var routes = new List<RouteApiViewModel>();
             var root = rootId.HasValue ? Umbraco.Content(rootId) : Umbraco.ContentAtRoot().First();
             var descendants = root.Descendants().ToList();

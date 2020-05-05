@@ -30,4 +30,16 @@ export default {
         });
     });
   },
+  getMainMenu() {
+    return new Promise((resolve, reject) => {
+      cmsAxios
+        .get("/umbraco/cmsapi/menu/getmainmenu")
+        .then((response) => {
+          resolve(response.data);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
+  },
 };

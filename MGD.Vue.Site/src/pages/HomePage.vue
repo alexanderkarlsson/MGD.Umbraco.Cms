@@ -29,7 +29,6 @@
 import cmsApi from "@/api/cms-api";
 import HeroBlock from "../components/HeroBlock.vue";
 import TeasersBlock from "../components/TeasersBlock.vue";
-
 import { blocksy } from "../mixins/Blocks.js";
 export default {
   name: "HomePage",

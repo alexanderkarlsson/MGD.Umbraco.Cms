@@ -15,8 +15,8 @@ namespace MGD.Umbraco.Cms.Core.Components
                 .Configuration
                 .EnableSwagger(c =>
                 {
-                    c.SingleApiVersion("v1", "Mardi Gras Digital - Umbraco API"); 
-                    c.ResolveConflictingActions(a =>a.First());
+                    c.SingleApiVersion("v1", "Mardi Gras Digital - Umbraco API");
+                    c.ResolveConflictingActions(a => a.First());
                     c.DocumentFilter<SwaggerDocumentFilter>();
                 })
                 .EnableSwaggerUi();

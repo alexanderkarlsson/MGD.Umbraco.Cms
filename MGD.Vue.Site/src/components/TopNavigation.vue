@@ -23,12 +23,36 @@
         </a>
       </div>
       <div id="navMenu" class="navbar-menu">
-        <router-link
-          v-for="route in cmsRoutes"
-          :key="route.id"
-          class="navbar-item"
-          :to="route.url"
-        >{{ route.name }}</router-link>
+        <div class="navbar-start">
+          <div
+            class="navbar-item"
+            v-bind:class="menuItem.children != null && menuItem.children.length > 0 ? 'has-dropdown is-hoverable' : ''"
+            v-for="menuItem in mainMenu"
+            :key="menuItem.id"
+          >
+            <router-link
+              class="navbar-link"
+              v-bind:class="menuItem.children != null && menuItem.children.length > 0 ? '' : 'is-arrowless'"
+              :to="menuItem.url"
+            >{{menuItem.name}}</router-link>
+            <div class="navbar-dropdown">
+              <router-link
+                class="navbar-item"
+                :to="menuItemChild.url"
+                v-for="menuItemChild in menuItem.children"
+                :key="menuItemChild.id"
+              >{{menuItemChild.name}}</router-link>
+            </div>
+          </div>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <a
+              class="button is-primary is-block-mobile"
+              href="https://mardigras.digital/"
+            >Landa i skogen!</a>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
@@ -39,14 +63,12 @@ export default {
   name: "TopNavigation",
   data() {
     return {
-      cmsRoutes: []
+      mainMenu: []
     };
   },
   mounted() {
-    cmsApi.getRoutes().then(cmsRoutes => {
-      this.cmsRoutes = cmsRoutes.filter(function(r) {
-        return r.url != "/";
-      });
+    cmsApi.getMainMenu().then(menu => {
+      this.mainMenu = menu;
     });
   }
 };

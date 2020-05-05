@@ -4,14 +4,14 @@
 
 // 2. Set your own initial variables
 // Update blue
-$blue: #72d0eb;
+$blue: #d643bc;
 // Add pink and its invert
-$pink: #ffb3b3;
+$wood-green: #7f8152;
 $pink-invert: #fff;
 
 // 3. Set the derived variables
 // Use the new pink as the primary color
-$primary: $pink;
+$primary: $wood-green;
 $primary-invert: $pink-invert;
 // Use the existing orange as the danger color
 $danger: $orange;
@@ -75,4 +75,8 @@ $colors: map-merge($colors, $addColors);
   img {
     max-height: 300px;
   }
+}
+
+.navbar-link.is-active {
+  background-color: #fff !important;
 }

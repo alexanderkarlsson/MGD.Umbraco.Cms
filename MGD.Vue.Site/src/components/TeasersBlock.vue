@@ -18,7 +18,7 @@ export default {
   name: "TeasersBlock",
   props: {
     isCompact: Boolean,
-    teasers: []
+    teasers: {}
   }
 };
 </script>

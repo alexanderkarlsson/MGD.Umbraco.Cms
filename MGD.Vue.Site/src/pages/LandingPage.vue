@@ -15,11 +15,13 @@
 <script>
 import cmsApi from "@/api/cms-api";
 import HeroBlock from "../components/HeroBlock.vue";
+import { blocksy } from "../mixins/Blocks.js";
 export default {
   name: "LandingPage",
   components: {
     HeroBlock
   },
+  mixins: [blocksy],
   data() {
     return {
       page: {}
@@ -39,28 +41,9 @@ export default {
   methods: {
     loadPage() {
       this.page = { blocks: [] };
-      let id = Number(this.pageId);
-      let p = this.page;
-      cmsApi.getPage(id).then(currentPage => {
+      cmsApi.getPage(this.pageId).then(currentPage => {
         if (currentPage.Blocks != null) {
-          currentPage.Blocks.forEach(block => {
-            let blockType = block.ContentType.Alias;
-            if (blockType === "heroBlock") {
-              p.blocks.push({
-                heading: block.Heading,
-                text: block.Text,
-                bgImageUrl: block.BackgroundImage
-                  ? block.BackgroundImage.Url
-                  : "",
-                blockType: blockType
-              });
-            } else if (blockType === "wysiwygBlock") {
-              p.blocks.push({
-                body: block.Body,
-                blockType: blockType
-              });
-            }
-          });
+          this.page.blocks = this.mapBlocks(currentPage.Blocks);
         }
       });
     }
