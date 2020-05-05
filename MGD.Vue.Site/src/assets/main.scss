@@ -64,3 +64,15 @@ $colors: map-merge($colors, $addColors);
     background-size: cover;
   }
 }
+
+.banner-block {
+  display: flex;
+  min-height: 300px;
+  background-position: center;
+  background-repeat: none;
+  justify-content: center;
+  align-items: center;
+  img {
+    max-height: 300px;
+  }
+}

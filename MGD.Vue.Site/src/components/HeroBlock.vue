@@ -1,7 +1,7 @@
 <template>
   <section
     class="hero hero-background is-large is-black is-bold has-background"
-    v-bind:style="{ backgroundImage: 'url(' + bgImageUrl + ')' }"
+    v-bind:style="{ backgroundImage: 'url(' + bgImageUrl + '?width=1000' + ')' }"
   >
     <div class="hero-body">
       <div class="container">

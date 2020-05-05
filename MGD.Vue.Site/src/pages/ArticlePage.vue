@@ -4,6 +4,7 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">{{ page.heading }}</h1>
+          <div class="subtitle" v-html="page.introduction"></div>
         </div>
       </div>
     </section>
@@ -40,6 +41,7 @@ export default {
       let id = Number(this.pageId);
       cmsApi.getPage(id).then(currentPage => {
         p.heading = currentPage.Heading;
+        p.introduction = currentPage.Introduction;
         p.body = currentPage.Body;
       });
     }

@@ -3,7 +3,7 @@
     <div class="container">
       <div class="columns">
         <div class="column">
-          <FooterLinks :links="footerLinksColumn1" />
+          <FooterLinks v-if="footerLinksColumn1" :links="footerLinksColumn1" />
         </div>
         <div class="column">
           <FooterLinks :links="footerLinksColumn2" />
@@ -37,7 +37,6 @@ export default {
   },
   created() {
     cmsApi.getPage(1134).then(page => {
-      console.log(page);
       if (page.FooterLinksColumn1 != null) {
         page.FooterLinksColumn1.forEach(link => {
           this.footerLinksColumn1.push({ url: link.Url, name: link.Name });

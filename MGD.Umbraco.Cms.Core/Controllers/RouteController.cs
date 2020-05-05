@@ -59,6 +59,6 @@ namespace MGD.Umbraco.Cms.Core.Controllers
         public string Name { get; set; }
         public string Url { get; set; }
         public string Alias { get; set; }
-        
+        public string MetadataTitle { get; set; }
     }
 }

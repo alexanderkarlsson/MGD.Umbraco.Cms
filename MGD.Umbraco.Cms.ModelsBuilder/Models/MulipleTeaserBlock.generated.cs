@@ -19,64 +19,36 @@ using Umbraco.ModelsBuilder.Embedded;
 
 namespace MGD.Umbraco.Cms.ModelsBuilder.Models
 {
-	/// <summary>Site settings</summary>
-	[PublishedModel("siteSettings")]
-	public partial class SiteSettings : PublishedContentModel
+	/// <summary>Muliple teaser block</summary>
+	[PublishedModel("mulipleTeaserBlock")]
+	public partial class MulipleTeaserBlock : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
-		public new const string ModelTypeAlias = "siteSettings";
+		public new const string ModelTypeAlias = "mulipleTeaserBlock";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<SiteSettings, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<MulipleTeaserBlock, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public SiteSettings(IPublishedContent content)
+		public MulipleTeaserBlock(IPublishedElement content)
 			: base(content)
 		{ }
 
 		// properties
 
 		///<summary>
-		/// Company name
+		/// Pages
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
-		[ImplementPropertyType("companyName")]
-		public string CompanyName => this.Value<string>("companyName");
-
-		///<summary>
-		/// gtm code
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
-		[ImplementPropertyType("gtmCode")]
-		public string GtmCode => this.Value<string>("gtmCode");
-
-		///<summary>
-		/// Product listing page size
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
-		[ImplementPropertyType("productListingPageSize")]
-		public int ProductListingPageSize => this.Value<int>("productListingPageSize");
-
-		///<summary>
-		/// Search result page size
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
-		[ImplementPropertyType("searchResultPageSize")]
-		public int SearchResultPageSize => this.Value<int>("searchResultPageSize");
-
-		///<summary>
-		/// Stories page size
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.6.1")]
-		[ImplementPropertyType("storiesPageSize")]
-		public int StoriesPageSize => this.Value<int>("storiesPageSize");
+		[ImplementPropertyType("pages")]
+		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.PublishedContent.IPublishedContent> Pages => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>>("pages");
 	}
 }

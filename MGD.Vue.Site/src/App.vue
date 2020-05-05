@@ -18,6 +18,11 @@ export default {
   components: {
     TopNavigation,
     Footer
+  },
+  watch: {
+    $route(to) {
+      document.title = to.meta.title || "Your Website";
+    }
   }
 };
 </script>

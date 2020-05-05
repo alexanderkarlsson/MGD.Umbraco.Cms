@@ -1,8 +1,8 @@
 <template>
   <div class="menu">
-    <ul class="menu-list" v-if="links.length > 0">
+    <ul class="menu-list" v-if="links && links.length > 0">
       <li>
-        <a :href="link.url" v-for="link in links" :key="link.name">{{link.name}}</a>
+        <a :href="link.url" v-for="link in links" :key="link.url">{{link.name}}</a>
       </li>
     </ul>
   </div>
@@ -11,7 +11,7 @@
 export default {
   name: "FooterLinks",
   props: {
-    links: []
+    links: {}
   }
 };
 </script>

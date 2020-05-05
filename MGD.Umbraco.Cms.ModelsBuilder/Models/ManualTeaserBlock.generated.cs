@@ -21,7 +21,7 @@ namespace MGD.Umbraco.Cms.ModelsBuilder.Models
 {
 	/// <summary>Manual teaser block</summary>
 	[PublishedModel("manualTeaserBlock")]
-	public partial class ManualTeaserBlock : PublishedContentModel
+	public partial class ManualTeaserBlock : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -38,7 +38,7 @@ namespace MGD.Umbraco.Cms.ModelsBuilder.Models
 #pragma warning restore 0109
 
 		// ctor
-		public ManualTeaserBlock(IPublishedContent content)
+		public ManualTeaserBlock(IPublishedElement content)
 			: base(content)
 		{ }
 

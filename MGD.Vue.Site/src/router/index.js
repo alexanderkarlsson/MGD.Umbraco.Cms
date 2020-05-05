@@ -22,6 +22,9 @@ cmsApi.getRoutes().then((cmsRoutes) => {
       name: p.name,
       component: comp,
       props: { pageId: p.id },
+      meta: {
+        title: p.metadataTitle,
+      },
     });
   });
   router.addRoutes(dynamicRoutes);
