@@ -33,6 +33,15 @@ namespace MGD.Umbraco.Cms.Core.Components
                 .paths
                 .Where(x => x.Key.ToLower().StartsWith("/umbraco/cmsapi"))
                 .ToDictionary(e => e.Key, e => e.Value);
+            
+            // Remove the paths id in swagger
+            foreach (var pathsValue in swaggerDoc.paths.Values)
+            {
+                if (pathsValue.get.parameters != null)
+                {
+                    pathsValue.get.parameters = pathsValue.get.parameters.Where(a => a.@in != "path").ToList();
+                }
+            }
         }
     }
 }
