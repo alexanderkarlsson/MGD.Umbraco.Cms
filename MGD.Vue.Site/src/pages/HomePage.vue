@@ -19,7 +19,7 @@
         class="container banner-block"
         v-bind:style="{ backgroundImage: 'url(' + block.bgImageUrl + '?width=1000' + ')' }"
       >
-        <img v-if="block.imageUrl" :src="block.imageUrl" alt />
+        <img v-if="block.imageUrl" :src="block.imageUrl + '?width=400'" alt />
       </a>
     </div>
   </div>

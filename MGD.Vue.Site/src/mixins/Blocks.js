@@ -21,9 +21,7 @@ export const blocksy = {
         } else if (blockType === "bannerBlock") {
           blocks.push({
             bgImageUrl:
-              block.BackgroundImage != null
-                ? block.BackgroundImage.Url + "?width=400"
-                : "",
+              block.BackgroundImage != null ? block.BackgroundImage.Url : "",
             imageUrl: block.Image != null ? block.Image.Url : "",
             linkUrl: block.Link != null ? block.Link.Url : "",
             blockType: blockType,
